@@ -8,7 +8,12 @@ class TelegramBot
 
     def message_received(msg)
       @client.append_history(msg)
-      @client.handle(msg)
+      begin
+        puts msg
+        @client.handle(msg)
+      rescue Exception => e
+        puts e.inspect
+      end
     end
 
     def start!
