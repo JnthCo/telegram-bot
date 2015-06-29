@@ -10,7 +10,7 @@ class TelegramBot
       @client.append_history(msg)
       begin
         @client.handle(msg)
-      rescue Exception => e
+      rescue => e
         puts e.inspect
       end
     end
